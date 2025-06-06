@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - main
     tags:
       - v*
   pull_request:
@@ -65,6 +65,6 @@ jobs:
           name: ${{ steps.tag.outputs.title }}
           tag_name: ${{ steps.tag.outputs.title }}
           body: |
-            See [CHANGELOG](https://github.com/mondeja/vscode-leptos-snippets/blob/master/CHANGELOG.md)
+            See [CHANGELOG](https://github.com/mondeja/vscode-leptos/blob/main/CHANGELOG.md)
           draft: false
           prerelease: false
