@@ -5,8 +5,6 @@ import { registerCommands as registerConfigureWorkspaceCommands } from './config
 import { registerCommands as registerConfigureRecommendedExtensionsCommands } from './recommendedExtensions';
 
 export function activate(context: vscode.ExtensionContext) {
-	console.log('mondeja.leptos is running');
-
 	registerConfigureWorkspaceCommands(context);
 	registerConfigureRecommendedExtensionsCommands(context);
 	registerTailwindCSSExperimentalClassRegexCommands(context);

@@ -1,6 +1,6 @@
 <!-- markdownlint-disable no-inline-html -->
 
-# vscode-leptos
+# My Leptos workspace
 
 VS Code extension to help with Leptos app development.
 
@@ -8,7 +8,19 @@ This extension provides commands to configure your workspace for Leptos
 development, including recommended extensions and Tailwind CSS IntelliSense
 configuration.
 
-## Features
+## Installation
+
+Install through VS Code extensions. Search for `My Leptos Workspace`.
+
+Can also be installed in VS Code. Launch VS Code Quick Open
+(<kbd>Ctrl</kbd>+<kbd>P</kbd>), paste the following command,
+and press <kbd>Enter</kbd>.
+
+```sh
+ext install mondeja.my-leptos-workspace
+```
+
+## Commands
 
 All commands are prefixed with `Leptos:` in the command palette to allow
 for easy searching.
@@ -28,7 +40,7 @@ Leptos development. It will create or update the `.vscode/extensions.json` file
 with the following recommended extensions:
 
 - [Tailwind CSS IntelliSense]
-- [rust-analyzer]
+- [Rust Analyzer]
 - This extension itself
 - [Leptos Snippets]
 - [Rust Flash Snippets]
@@ -48,6 +60,6 @@ To set up or update to ensure that the configuration is correct, use
 the command `Leptos: Configure Tailwind CSS IntelliSense classes`.
 
 [Tailwind CSS IntelliSense]: https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
-[rust-analyzer]: https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer
+[Rust Analyzer]: https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer
 [Leptos Snippets]: https://marketplace.visualstudio.com/items?itemName=mondeja.leptos-snippets
 [Rust Flash Snippets]: https://marketplace.visualstudio.com/items?itemName=lorenzopirro.rust-flash-snippets

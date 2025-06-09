@@ -1,6 +1,6 @@
 {
-  "name": "leptos",
-  "displayName": "leptos",
+  "name": "my-leptos-workspace",
+  "displayName": "My Leptos workspace",
   "description": "VS Code extension to help with Leptos app development.",
   "version": "0.1.0",
   "engines": {

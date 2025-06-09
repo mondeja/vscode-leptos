@@ -19,7 +19,7 @@ export const ALREADY_UPDATED_MESSAGE = "The recommended extensions are already c
 const RECOMMENDATIONS = [
     "bradlc.vscode-tailwindcss",
     "rust-lang.rust-analyzer",
-    "mondeja.leptos",
+    "mondeja.my-leptos-workspace",
     "mondeja.leptos-snippets",
     "lorenzopirro.rust-flash-snippets",
 ];
