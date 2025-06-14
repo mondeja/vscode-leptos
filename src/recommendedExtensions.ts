@@ -12,8 +12,9 @@ export function registerCommands(context: vscode.ExtensionContext) {
     }
 }
 
-export const CREATED_MESSAGE = "The file .vscode/extensions.json has been created";
-export const UPDATED_MESSAGE = "The file .vscode/extensions.json has been updated";
+export const VSCODE_FOLDER_CREATED_MESSAGE = "The .vscode folder has been created";
+export const EXTENSIONS_JSON_CREATED_MESSAGE = "The file .vscode/extensions.json has been created";
+export const EXTENSIONS_JSON_UPDATED_MESSAGE = "The file .vscode/extensions.json has been updated";
 export const ALREADY_UPDATED_MESSAGE = "The recommended extensions are already configured in .vscode/extensions.json";
 
 const RECOMMENDATIONS = [
@@ -34,10 +35,21 @@ export async function configureRecommendedExtensions(showInformationMessage = tr
         return false;
     }
 
-    const extensionsJsonUri = vscode.Uri.joinPath(
+    const vscodeFolderUri = vscode.Uri.joinPath(
         vscode.workspace.workspaceFolders![0].uri,
         '.vscode',
-        'extensions.json'
+    );
+
+    if (!fs.existsSync(vscodeFolderUri.fsPath)) {
+        fs.mkdirSync(vscodeFolderUri.fsPath, { recursive: true });
+        if (showInformationMessage) {
+            vscode.window.showInformationMessage(VSCODE_FOLDER_CREATED_MESSAGE);
+        }
+    }
+
+    const extensionsJsonUri = vscode.Uri.joinPath(
+        vscodeFolderUri,
+        'extensions.json',
     );
 
     let edited = false;
@@ -45,7 +57,7 @@ export async function configureRecommendedExtensions(showInformationMessage = tr
         fs.writeFileSync(extensionsJsonUri.fsPath, JSON.stringify({ recommendations: RECOMMENDATIONS }, null, 2));
         edited = true;
         if (showInformationMessage) {
-            vscode.window.showInformationMessage(CREATED_MESSAGE);
+            vscode.window.showInformationMessage(EXTENSIONS_JSON_CREATED_MESSAGE);
         }
     } else {
         const content = fs.readFileSync(extensionsJsonUri.fsPath, 'utf8');
@@ -73,7 +85,7 @@ export async function configureRecommendedExtensions(showInformationMessage = tr
             );
             fs.writeFileSync(extensionsJsonUri.fsPath, newContent);
             if (showInformationMessage) {
-                vscode.window.showInformationMessage(UPDATED_MESSAGE);
+                vscode.window.showInformationMessage(EXTENSIONS_JSON_UPDATED_MESSAGE);
             }
         }
         else if (showInformationMessage) {
