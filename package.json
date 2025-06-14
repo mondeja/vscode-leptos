@@ -2,7 +2,7 @@
   "name": "my-leptos-workspace",
   "displayName": "My Leptos workspace",
   "description": "VS Code extension to help with Leptos app development.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.100.0"
   },
@@ -35,6 +35,10 @@
       {
         "command": "leptos.configureTailwindCSSExperimentalClassRegex",
         "title": "Leptos: Configure Tailwind CSS IntelliSense classes"
+      },
+      {
+        "command": "leptos.configureRustAnalyzerFormatting",
+        "title": "Leptos: Configure formatting with Rust Analyzer and leptosfmt"
       }
     ]
   },

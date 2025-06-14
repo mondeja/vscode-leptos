@@ -28,7 +28,7 @@ export const ALREADY_UPDATED_MESSAGE = "`tailwindCSS.experimental.classRegex` is
  * Configure Tailwind CSS experimental class regexes in _.vscode/settings.json_.
  */
 export function configureTailwindCSSExperimentalClassRegex(showInformationMessage = true): boolean {
-  const config = vscode.workspace.getConfiguration('tailwindCSS');
+  const config = vscode.workspace.getConfiguration('tailwindCSS', vscode.workspace.workspaceFolders![0]);
   const classRegex = config.get<any>('experimental.classRegex', []);
 
   const newClassRegex = globalThis.structuredClone(classRegex);

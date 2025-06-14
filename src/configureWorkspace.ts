@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
 
+import { configureRustAnalyzerFormatting } from "./rustAnalyzerFormatting";
 import { configureRecommendedExtensions } from "./recommendedExtensions";
 import { configureTailwindCSSExperimentalClassRegex } from "./tailwindCSSExperimentalClassRegex";
 
@@ -12,17 +13,6 @@ export function registerCommands(context: vscode.ExtensionContext) {
     context.subscriptions.push(disposable);
   }
 }
-
-const EXPECTED_CLASS_REGEX: Array<string | [string, string]> = [
-  // `format!("px-1")` and `concat!("px-1")`
-  ["(?:format|concat)!\\(([^)]*)\\)", "(?:\")([^\"]*)(?:\")"],
-  // `attr:class="px-1"`
-  "(?:attr:class=\")([^\"]*)(?:\")",
-  // `class:px-1`
-  "(?:class:)([^=\\s]*)(?:=)",
-  // `my_foo_class = "px-1"`
-  "(?:\\w_class\\s=\\s\")([^\"]*)",
-];
 
 export const UPDATED_MESSAGE = "All the configurations have been updated";
 export const ALREADY_UPDATED_MESSAGE = "All the configurations are already updated";
@@ -37,6 +27,9 @@ export async function configureWorkspace() {
     edited = true;
   }
   if (configureTailwindCSSExperimentalClassRegex(false)) {
+    edited = true;
+  }
+  if (configureRustAnalyzerFormatting(false)) {
     edited = true;
   }
 

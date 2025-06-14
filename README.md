@@ -59,7 +59,17 @@ work correctly with Leptos.
 To set up or update to ensure that the configuration is correct, use
 the command `Leptos: Configure Tailwind CSS IntelliSense classes`.
 
+### Formatting with Rust Analyzer and leptosfmt
+
+To configure formatting with [Rust Analyzer] and [leptosfmt], you can use the
+command `Leptos: Configure formatting with Rust Analyzer and leptosfmt`. This will
+create or update the `.vscode/settings.json` file with the necessary configuration
+to use [leptosfmt] for formatting your Leptos code.
+
+Don't forget to install [leptosfmt] and set into your `PATH` so that it can be used by Rust Analyzer.
+
 [Tailwind CSS IntelliSense]: https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
 [Rust Analyzer]: https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer
 [Leptos Snippets]: https://marketplace.visualstudio.com/items?itemName=mondeja.leptos-snippets
 [Rust Flash Snippets]: https://marketplace.visualstudio.com/items?itemName=lorenzopirro.rust-flash-snippets
+[leptosfmt]: https://github.com/bram209/leptosfmt
