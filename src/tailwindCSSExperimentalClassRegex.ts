@@ -10,9 +10,12 @@ export function registerCommands(context: vscode.ExtensionContext) {
   }
 }
 
-const EXPECTED_CLASS_REGEX: Array<string | [string, string]> = [
-  // `format!("px-1")` and `concat!("px-1")`
-  ["(?:format|concat)!\\(([^)]*)\\)", "(?:\")([^\"]*)(?:\")"],
+const EXPECTED_CLASS_REGEX: (string | [string, string])[] = [
+  // `format!("px-1")`, `concat!("px-1")`, `span.set_attribute("class", "text-xs")`... etc.
+  [
+    "(?:format|concat|add|add_[1-7]|remove|remove_[1-7]|replace|toggle|toggle_with_force|contains|set_attribute)!?\\(([^)]*)\\)",
+    "(?:\")([^\"]*)(?:\")",
+  ],
   // `attr:class="px-1"`
   "(?:attr:class=\")([^\"]*)(?:\")",
   // `class:px-1`
