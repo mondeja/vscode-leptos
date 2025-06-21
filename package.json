@@ -2,7 +2,7 @@
   "name": "my-leptos-workspace",
   "displayName": "My Leptos workspace",
   "description": "VS Code extension to help with Leptos app development.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "engines": {
     "vscode": "^1.100.0"
   },
@@ -55,7 +55,8 @@
     "check-types": "tsc --noEmit",
     "lint": "npm run lint:eslint",
     "lint:eslint": "eslint src",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "prepare": "node -e 'process.exit(process.env.CI ? 0 : 1)' || husky"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
@@ -68,6 +69,7 @@
     "@vscode/test-electron": "^2.5.2",
     "esbuild": "^0.25.3",
     "eslint": "^9.25.1",
+    "husky": "9.1.7",
     "npm-run-all": "^4.1.5",
     "sinon": "20.0.0",
     "typescript": "^5.8.3"
