@@ -10,8 +10,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint:
-    name: Lint
+  compile:
+    name: compile
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,12 +21,12 @@ jobs:
           node-version-file: .node-version
       - name: Install
         run: npm ci --no-audit --no-fund
-      - name: Lint
-        run: npm run lint
+      - name: Compile
+        run: npm run compile
 
   vscode:
     if: startsWith(github.ref, 'refs/tags/')
-    needs: lint
+    needs: compile
     name: Publish VSCode extension
     runs-on: ubuntu-latest
     steps:
